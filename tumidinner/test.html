@@ -281,10 +281,23 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             function getNextFriday() {
+                // Get current date in UTC
                 const now = new Date();
-                const nextFriday = new Date();
-                nextFriday.setDate(now.getDate() + ((7 - now.getDay() + 5) % 7));
-                nextFriday.setHours(19, 0, 0, 0);
+    
+                // Create a new date object for next Friday
+                const nextFriday = new Date(Date.UTC(
+                now.getUTCFullYear(),
+                now.getUTCMonth(),
+                now.getUTCDate()
+                ));
+    
+                // Calculate days until next Friday using UTC day
+                const daysUntilFriday = ((7 - nextFriday.getUTCDay() + 5) % 7);
+                nextFriday.setUTCDate(nextFriday.getUTCDate() + daysUntilFriday);
+    
+                // Set to 19:00 UTC
+                nextFriday.setUTCHours(19, 0, 0, 0);
+    
                 return nextFriday;
             }
 
