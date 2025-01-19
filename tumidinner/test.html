@@ -154,7 +154,7 @@
                         <div>
                             <h3 class="font-serif text-xl mb-2 text-orange-800">When We Meet</h3>
                             <p class="text-orange-900/80 leading-relaxed">
-                                Join us every Friday at 7:00 PM! Feel free to come around 6:45 PM to mingle and 
+                                Join us every Friday at 7:00 PM GMT! Feel free to come around 6:45 PM to mingle and 
                                 get comfortable. We start on time and usually wrap up around 10:00 PM, but time flies when you're 
                                 having fun!
                             </p>
@@ -323,7 +323,7 @@
                 const seconds = Math.floor((difference / 1000) % 60);
 
                 // Update DOM elements
-                document.getElementById('days').textContent = String(days).padStart(2, '0');
+                document.getElementById('days').textContent = String(days).padStart(1, '0');
                 document.getElementById('hours').textContent = String(hours).padStart(2, '0');
                 document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
                 document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
