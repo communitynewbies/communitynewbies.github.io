@@ -154,7 +154,7 @@
                         <div>
                             <h3 class="font-serif text-xl mb-2 text-orange-800">When We Meet</h3>
                             <p class="text-orange-900/80 leading-relaxed">
-                                Join us every Friday at 7:00 PM! Feel free to come around 6:45 PM to mingle and 
+                                Join us every Friday at 7:00 PM GMT! Feel free to come around 6:45 PM to mingle and 
                                 get comfortable. We start on time and usually wrap up around 10:00 PM, but time flies when you're 
                                 having fun!
                             </p>
@@ -281,26 +281,52 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             function getNextFriday() {
+                // Get current date in UTC
                 const now = new Date();
-                const nextFriday = new Date();
-                nextFriday.setDate(now.getDate() + ((7 - now.getDay() + 5) % 7));
-                nextFriday.setHours(19, 0, 0, 0);
+    
+                // Create a new date object for next Friday
+                const nextFriday = new Date(Date.UTC(
+                now.getUTCFullYear(),
+                now.getUTCMonth(),
+                now.getUTCDate()
+                ));
+    
+                // Calculate days until next Friday using UTC day
+                const daysUntilFriday = ((7 - nextFriday.getUTCDay() + 5) % 7);
+                nextFriday.setUTCDate(nextFriday.getUTCDate() + daysUntilFriday);
+    
+                // Set to 19:00 UTC
+                nextFriday.setUTCHours(19, 0, 0, 0);
+    
                 return nextFriday;
             }
 
             function updateCountdown() {
+                // Get current time in UTC
                 const now = new Date();
-                const difference = getNextFriday() - now;
+                const utcNow = new Date(Date.UTC(
+                    now.getUTCFullYear(),
+                    now.getUTCMonth(),
+                    now.getUTCDate(),
+                    now.getUTCHours(),
+                    now.getUTCMinutes(),
+                    now.getUTCSeconds()
+                 ));
+    
+                // Get difference in milliseconds
+                const difference = getNextFriday() - utcNow;
 
+                // Calculate time components
                 const days = Math.floor(difference / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
                 const minutes = Math.floor((difference / 1000 / 60) % 60);
                 const seconds = Math.floor((difference / 1000) % 60);
 
-                document.getElementById('days').textContent = days;
-                document.getElementById('hours').textContent = hours;
-                document.getElementById('minutes').textContent = minutes;
-                document.getElementById('seconds').textContent = seconds;
+                // Update DOM elements
+                document.getElementById('days').textContent = String(days).padStart(1, '0');
+                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
             }
 
             // Poetry section
