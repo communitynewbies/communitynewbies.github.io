@@ -6,7 +6,15 @@
     <meta property="og:title" content="Tumi International Dinner: First-Timers Guide" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://communitynewbies.github.io/tumidinner/" />
-    <meta property="og:description" content="You just got invited to Tumi International Dinner for the first time? PlEASE READ ME!." />
+   <!--  <meta
+      property="og:image:secure"
+      content="https://communitynewbies.github.io/tumidinner/dinner.jpg"
+    /> -->
+    
+    <meta
+      property="og:description"
+      content="You just got invited to Tumi International Dinner for the first time? PlEASE READ ME!."
+    />
     <title>Tumi International Dinner: First-Timers Guide</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Bebas+Neue" rel="stylesheet">
@@ -21,6 +29,7 @@
         .curved-text {
             display: inline-block;
             transform: rotate(10deg);
+            
         }
         
         .countdown-item {
@@ -70,42 +79,25 @@
             background-color: #fff7ed;
             border: 1px solid #fed7aa;
         }
-
-        .poetry-section {
-            padding: 2rem 1rem;
-            text-align: center;
-        }
-        
-        .poem-content {
-            color: #431407;
-            font-style: italic;
-            margin-bottom: 0.5rem;
-            line-height: 1.6;
-        }
-        
-        .poem-attribution {
-            color: #1f2937;
-            font-size: 0.875rem;
-        }
-
-        .thank-you {
-            text-align: center;
-            padding-top: 2rem;
-            color: #1f2937;
-        }
-
-        .footer {
-            text-align: center;
-            padding: 1.5rem;
-            color: #1f2937;
-            font-size: 0.875rem;
-            line-height: 1.4;
-        }
     </style>
 </head>
 <body class="bg-gray-50">
     <div class="max-w-4xl mx-auto p-4 sm:p-6 font-sans">
         <div class="bg-orange-50 rounded-lg shadow-lg overflow-hidden mb-6">
+            <div class="space-y-2 pt-16 px-4 sm:px-6">
+                <div class="flex flex-col items-center justify-center relative">
+                    <div class="absolute top-0 w-full h-32 bg-gradient-to-b from-orange-100/50"></div>
+                    <div class="curved-header">
+                        <h1 class="curved-text text-4xl font-normal text-orange-800 font-serif";>
+                            Tumi International Dinner
+                        </h1>
+                    </div>
+                    <p class="text-2xl text-center text-orange-600 font-light mt-8">
+                        First-Timers Guide
+                    </p>
+                </div>
+            </div>
+
             <div class="p-4 sm:p-6">
                 <div class="countdown-grid grid grid-cols-4 gap-4 mb-8">
                     <div class="countdown-item">
@@ -127,7 +119,6 @@
                 </div>
 
                 <div class="space-y-8">
-                    <!-- When We Meet section -->
                     <div class="flex items-start gap-4">
                         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="12" cy="12" r="10"></circle>
@@ -143,7 +134,6 @@
                         </div>
                     </div>
 
-                    <!-- How We Dine section -->
                     <div class="flex items-start gap-4">
                         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
@@ -161,7 +151,6 @@
                         </div>
                     </div>
 
-                    <!-- The Vibe section -->
                     <div class="flex items-start gap-4">
                         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
@@ -179,7 +168,6 @@
                         </div>
                     </div>
 
-                    <!-- Reserve Your Spot section -->
                     <div class="flex items-start gap-4">
                         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
@@ -199,7 +187,6 @@
                         </div>
                     </div>
 
-                    <!-- Finding Us section -->
                     <div class="flex items-start gap-4">
                         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
@@ -218,7 +205,6 @@
                         </div>
                     </div>
 
-                    <!-- Quick Tips section -->
                     <div class="mt-8 p-6 quick-tips rounded-lg shadow-sm">
                         <h3 class="font-serif text-xl mb-3 text-orange-800">Quick Tips</h3>
                         <ul class="space-y-3 text-orange-900/80 leading-relaxed">
@@ -240,24 +226,12 @@
                             </li>
                         </ul>
                     </div>
-
-                    <!-- Poetry section -->
-                    <div class="poetry-section" id="poetry-section">
-                        <!-- Content will be populated by JavaScript -->
-                    </div>
                 </div>
             </div>
         </div>
-
-        <!-- Thank You message -->
-        <div class="thank-you">
-            Thanks for reading 😊
-        </div>
     </div>
-    
-    <footer class="footer">
-        this guide is home-cooked with ❤️ by Sam<br>
-        with feedback from Nele, Milou and other members of the Tumi dinner community
+    <footer class="text-center py-6 text-orange-600 text-sm">
+        put together with ❤️ by Sam & Nele
     </footer>
 
     <script>
@@ -276,7 +250,7 @@
 
                 const days = Math.floor(difference / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
-                const minutes = Math.floor((difference / 1000 / 60) % 60);
+                const minutes = Math.floor((difference / 1000 * 60) % 60);
                 const seconds = Math.floor((difference / 1000) % 60);
 
                 document.getElementById('days').textContent = days;
@@ -285,38 +259,9 @@
                 document.getElementById('seconds').textContent = seconds;
             }
 
-            // Poetry section
-            const poems = [
-                {
-                    title: "Community",
-                    content: "Around shared tables, stories unfold<br>Like petals opening to the sun<br>Each Friday brings us closer, makes us whole",
-                    author: "Maria Santos"
-                },
-                {
-                    title: "The Mesh",
-                    content: "We have come to the cross-roads<br>And I must either leave or come with you.",
-                    author: "Kwesi Brew"
-                },
-                {
-                    title: "E be so (Red, Accra 1980)",
-                    content: "e be so we dey do am for here",
-                    author: "Nii Ayikwei Parkes"
-                }
-            ];
-
-            // Select random poem
-            const randomPoem = poems[Math.floor(Math.random() * poems.length)];
-            
-            // Update poetry section with new structure
-            const poetrySection = document.getElementById('poetry-section');
-            poetrySection.innerHTML = `
-                <div class="poem-content">${randomPoem.content}</div>
-                <div class="poem-attribution">- ${randomPoem.author} (${randomPoem.title})</div>
-            `;
-
-            // Initial countdown update
+            // Initial update
             updateCountdown();
-            // Update countdown every second
+            // Update every second
             setInterval(updateCountdown, 1000);
         });
     </script>
