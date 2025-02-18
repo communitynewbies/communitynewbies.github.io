@@ -30,6 +30,11 @@
             width: 100%;
             position: relative;
             text-decoration: none;
+            cursor: default;
+        }
+
+        .color-block[href] {
+            cursor: pointer;
         }
 
         .color-block::before {
@@ -53,33 +58,41 @@
     <div class="grid" id="colorGrid"></div>
 
     <script>
-        const colors = [
-            '#FF6B6B', '#4ECDC4', '#45B7D1',
-            '#96CEB4', '#D4A5A5', '#9B6B6B',
-            '#E9D985', '#7986CB', '#B39DDB',
-            '#81C784', '#4DB6AC', '#DCE775',
-            '#FFB74D', '#F48FB1', '#9575CD'
-        ];
-
-        const urls = [
-            'https://example.com/1', 'https://example.com/2', 'https://example.com/3',
-            'https://example.com/4', 'https://example.com/5', 'https://example.com/6',
-            'https://example.com/7', 'https://example.com/8', 'https://example.com/9',
-            'https://example.com/10', 'https://example.com/11', 'https://example.com/12',
-            'https://example.com/13', 'https://example.com/14', 'https://example.com/15'
+        const items = [
+            { color: '#FF6B6B', url: 'https://example.com/1' },
+            { color: '#4ECDC4', url: 'https://example.com/2' },
+            { color: '#45B7D1' },
+            { color: '#96CEB4' },
+            { color: '#D4A5A5' },
+            { color: '#9B6B6B' },
+            { color: '#E9D985' },
+            { color: '#7986CB' },
+            { color: '#B39DDB' },
+            { color: '#81C784' },
+            { color: '#4DB6AC' },
+            { color: '#DCE775' },
+            { color: '#FFB74D' },
+            { color: '#F48FB1' },
+            { color: '#9575CD' }
         ];
 
         const grid = document.getElementById('colorGrid');
+        const defaultColor = '#CCCCCC'; // Light gray color for items without URLs
 
-        colors.forEach((color, index) => {
-            const link = document.createElement('a');
-            link.href = urls[index];
-            link.className = 'color-block';
-            link.style.backgroundColor = color;
-            link.setAttribute('target', '_blank');
-            link.setAttribute('rel', 'noopener noreferrer');
-            link.setAttribute('aria-label', `Color block ${color}`);
-            grid.appendChild(link);
+        items.forEach((item) => {
+            const element = document.createElement(item.url ? 'a' : 'div');
+            
+            if (item.url) {
+                element.href = item.url;
+                element.setAttribute('target', '_blank');
+                element.setAttribute('rel', 'noopener noreferrer');
+            }
+            
+            element.className = 'color-block';
+            element.style.backgroundColor = item.url ? item.color : defaultColor;
+            element.setAttribute('aria-label', `Color block ${item.url ? item.color : 'gray'}`);
+            
+            grid.appendChild(element);
         });
     </script>
 </body>
