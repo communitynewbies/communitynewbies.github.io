@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide to Newbie Guides</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f5f5f5;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .color-block {
+            display: block;
+            width: 100%;
+            position: relative;
+            text-decoration: none;
+            cursor: default;
+        }
+
+        .color-block[href] {
+            cursor: pointer;
+        }
+
+        .color-block::before {
+            content: '';
+            display: block;
+            padding-bottom: 100%;
+        }
+
+        .color-block:hover {
+            transform: scale(0.98);
+            transition: transform 0.2s ease;
+        }
+
+        .color-block:focus {
+            outline: 3px solid #000;
+            outline-offset: 2px;
+        }
+        
+        .plus-symbol {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4.5rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid" id="colorGrid"></div>
+
+    <script>
+        const items = [
+            { color: '#FB923C', url: 'tumidinner/' },
+            { color: '#3B82F6', url: 'hag/' },
+            { color: '#43C89D', url: 'logiclounge/'  },
+            { color: '#CCCCCC', url: 'request/', hasPlus: true },
+            { color: '#D4A5A5' },
+            { color: '#9B6B6B' },
+            { color: '#E9D985' },
+            { color: '#7986CB' },
+            { color: '#B39DDB' },
+            { color: '#81C784' },
+            { color: '#4DB6AC' },
+            { color: '#DCE775' },
+            { color: '#FFB74D' },
+            { color: '#F48FB1' },
+            { color: '#9575CD' }
+        ];
+
+        const grid = document.getElementById('colorGrid');
+        const defaultColor = '#CCCCCC'; // Light gray color for items without URLs
+
+        items.forEach((item) => {
+            const element = document.createElement(item.url ? 'a' : 'div');
+            
+            if (item.url) {
+                element.href = item.url;
+                // element.setAttribute('target', '_blank');
+                // element.setAttribute('rel', 'noopener noreferrer');
+            }
+            
+            element.className = 'color-block';
+            element.style.backgroundColor = item.url ? item.color : defaultColor;
+            
+            let ariaLabel = `Color block ${item.color || 'gray'}`;
+            if (item.hasPlus) {
+                ariaLabel += ' with plus symbol';
+                const plusSymbol = document.createElement('div');
+                plusSymbol.className = 'plus-symbol';
+                plusSymbol.textContent = '+';
+                element.appendChild(plusSymbol);
+            }
+            
+            element.setAttribute('aria-label', ariaLabel);
+            grid.appendChild(element);
+        });
+    </script>
+</body>
+</html>
