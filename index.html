@@ -52,6 +52,16 @@
             outline: 3px solid #000;
             outline-offset: 2px;
         }
+        
+        .plus-symbol {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4.5rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
     </style>
 </head>
 <body>
@@ -62,7 +72,7 @@
             { color: '#FB923C', url: 'tumidinner/' },
             { color: '#3B82F6', url: 'hag/' },
             { color: '#43C89D', url: 'logiclounge/'  },
-            { color: '#96CEB4' },
+            { color: '#CCCCCC', url: 'request/', hasPlus: true },
             { color: '#D4A5A5' },
             { color: '#9B6B6B' },
             { color: '#E9D985' },
@@ -90,8 +100,17 @@
             
             element.className = 'color-block';
             element.style.backgroundColor = item.url ? item.color : defaultColor;
-            element.setAttribute('aria-label', `Color block ${item.url ? item.color : 'gray'}`);
             
+            let ariaLabel = `Color block ${item.color || 'gray'}`;
+            if (item.hasPlus) {
+                ariaLabel += ' with plus symbol';
+                const plusSymbol = document.createElement('div');
+                plusSymbol.className = 'plus-symbol';
+                plusSymbol.textContent = '+';
+                element.appendChild(plusSymbol);
+            }
+            
+            element.setAttribute('aria-label', ariaLabel);
             grid.appendChild(element);
         });
     </script>
