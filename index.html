@@ -30,10 +30,6 @@
             width: 100%;
             position: relative;
             text-decoration: none;
-            cursor: default;
-        }
-
-        .color-block[href] {
             cursor: pointer;
         }
 
@@ -72,36 +68,20 @@
             { color: '#FB923C', url: 'tumidinner/' },
             { color: '#3B82F6', url: 'hag/' },
             { color: '#43C89D', url: 'logiclounge/'  },
-            { color: '#CCCCCC', url: 'request/', hasPlus: true },
-            { color: '#D4A5A5' },
-            { color: '#9B6B6B' },
-            { color: '#E9D985' },
-            { color: '#7986CB' },
-            { color: '#B39DDB' },
-            { color: '#81C784' },
-            { color: '#4DB6AC' },
-            { color: '#DCE775' },
-            { color: '#FFB74D' },
-            { color: '#F48FB1' },
-            { color: '#9575CD' }
+            { color: '#CCCCCC', url: 'request/', hasPlus: true }
         ];
 
         const grid = document.getElementById('colorGrid');
-        const defaultColor = '#CCCCCC'; // Light gray color for items without URLs
 
         items.forEach((item) => {
-            const element = document.createElement(item.url ? 'a' : 'div');
+            if (!item.url) return; // Skip items without URLs
             
-            if (item.url) {
-                element.href = item.url;
-                // element.setAttribute('target', '_blank');
-                // element.setAttribute('rel', 'noopener noreferrer');
-            }
-            
+            const element = document.createElement('a');
+            element.href = item.url;
             element.className = 'color-block';
-            element.style.backgroundColor = item.url ? item.color : defaultColor;
+            element.style.backgroundColor = item.color;
             
-            let ariaLabel = `Color block ${item.color || 'gray'}`;
+            let ariaLabel = `Color block ${item.color}`;
             if (item.hasPlus) {
                 ariaLabel += ' with plus symbol';
                 const plusSymbol = document.createElement('div');
