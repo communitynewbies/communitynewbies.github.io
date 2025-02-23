@@ -26,6 +26,7 @@
             max-width: 32rem;
             width: 100%;
             padding: 1rem;
+            min-height: 90vh;
         }
 
         .svg-border {
@@ -41,39 +42,44 @@
         .card-content {
             position: relative;
             z-index: 2;
-            padding: 1.5rem;
+            padding: 2rem;
             text-align: center;
             background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(8px);
             width: 100%;
             margin: 0 auto;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .header {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .title {
-            font-size: 1.5rem;
+            font-size: 2rem;
             font-weight: 600;
             color: rgb(120, 53, 15);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
         }
 
         .date {
-            font-size: 0.875rem;
+            font-size: 1.1rem;
             color: rgb(217, 119, 6);
         }
 
         .main-text {
             color: rgb(146, 64, 14);
-            margin-bottom: 1rem;
-            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            font-size: 1.1rem;
         }
 
         .description {
-            font-size: 0.875rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
         }
 
         .link {
@@ -90,21 +96,21 @@
         }
 
         .footer {
-            margin-top: 1.5rem;
+            margin-top: 2rem;
             font-style: italic;
             color: rgb(180, 83, 9);
-            font-size: 0.875rem;
+            font-size: 1rem;
         }
 
         .calendar-btn {
             display: inline-block;
-            margin-top: 1rem;
-            padding: 0.5rem 1.5rem;
+            margin-top: 1.5rem;
+            padding: 0.75rem 2rem;
             background-color: rgb(217, 119, 6);
             color: white;
             border: none;
             border-radius: 9999px;
-            font-size: 0.875rem;
+            font-size: 1rem;
             cursor: pointer;
             transition: all 0.2s ease;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -123,11 +129,21 @@
         @media (max-width: 640px) {
             .border-container {
                 padding: 0.5rem;
+                min-height: 85vh;
             }
             
             .card-content {
-                padding: 1rem;
+                padding: 1.5rem;
                 width: 100%;
+                min-height: 75vh;
+            }
+
+            .title {
+                font-size: 1.8rem;
+            }
+
+            .main-text, .description, .date {
+                font-size: 1.05rem;
             }
         }
     </style>
