@@ -26,7 +26,7 @@
             max-width: 32rem;
             width: 100%;
             padding: 1rem;
-            min-height: 90vh;
+            min-height: 80vh;
         }
 
         .svg-border {
@@ -48,7 +48,7 @@
             backdrop-filter: blur(8px);
             width: 100%;
             margin: 0 auto;
-            min-height: 80vh;
+            min-height: 70vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -127,15 +127,23 @@
         }
 
         @media (max-width: 640px) {
+            body {
+                padding: 0.25rem;
+            }
+            
             .border-container {
                 padding: 0.5rem;
-                min-height: 85vh;
+                min-height: 95dvh;
             }
             
             .card-content {
-                padding: 1.5rem;
+                padding: 1.25rem;
                 width: 100%;
-                min-height: 75vh;
+                min-height: auto;
+            }
+
+            .header {
+                margin-bottom: 1.5rem;
             }
 
             .title {
@@ -144,6 +152,11 @@
 
             .main-text, .description, .date {
                 font-size: 1.05rem;
+                margin-bottom: 1.25rem;
+            }
+
+            .footer {
+                margin-top: 1.5rem;
             }
         }
     </style>
