@@ -147,19 +147,28 @@
 
         /* Mobile Styles */
         @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
+            body {
                 overflow-y: auto;
             }
 
+            .container {
+                flex-direction: column;
+                height: auto;
+                min-height: 100vh;
+            }
+
             .left-column {
-                min-height: 60vh;
+                height: 70vh;
+                min-height: 70vh;
                 padding: 1.5rem;
+                flex-shrink: 0;
             }
 
             .right-column {
-                min-height: 40vh;
+                height: auto;
+                min-height: 100vh;
                 padding: 1.5rem;
+                flex-shrink: 0;
             }
 
             .club-title {
