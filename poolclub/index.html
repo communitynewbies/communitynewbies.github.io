@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html prefix="og: https://ogp.me/ns#" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Amateur Pool Club" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://communitynewbies.github.io/poolclub/" />
+    <meta property="og:description" content="Join us if you like to play pool or want to learn." />
+    <title>Amateur Pool Club</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .left-column {
+            flex: 1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            color: white;
+            text-align: center;
+        }
+
+        .right-column {
+            flex: 1;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .club-title {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+
+        .club-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.6;
+            max-width: 400px;
+        }
+
+        .join-button {
+            background: #25D366;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .join-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .event-info {
+            text-align: center;
+            color: #333;
+        }
+
+        .event-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .event-date {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .event-time {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #666;
+        }
+
+        .venue-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .venue-flag {
+            background: #ff6b6b;
+            color: white;
+            font-size: 0.7rem;
+            padding: 0.15rem 0.5rem;
+            border-radius: 10px;
+            margin-left: 0.5rem;
+            font-weight: normal;
+            vertical-align: super;
+            display: inline-block;
+        }
+
+        .venue-name {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .map-container {
+            width: 100%;
+            max-width: 400px;
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                overflow-y: auto;
+            }
+
+            .left-column {
+                min-height: 60vh;
+                padding: 1.5rem;
+            }
+
+            .right-column {
+                min-height: 40vh;
+                padding: 1.5rem;
+            }
+
+            .club-title {
+                font-size: 2.5rem;
+            }
+
+            .club-subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .event-title {
+                font-size: 1.8rem;
+            }
+
+            .event-date {
+                font-size: 1.2rem;
+            }
+
+            .venue-title {
+                font-size: 1.3rem;
+            }
+
+            .venue-name {
+                font-size: 1.1rem;
+            }
+
+            .map-container {
+                height: 200px;
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .left-column, .right-column {
+                padding: 1rem;
+            }
+
+            .club-title {
+                font-size: 2rem;
+            }
+
+            .club-subtitle {
+                font-size: 1rem;
+            }
+
+            .join-button {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-column">
+            <h1 class="club-title">Amateur Pool Club</h1>
+            <p class="club-subtitle">We meet regularly at pool tables anywhere in the city for fun casual games. Join us!</p>
+            <a href="https://chat.whatsapp.com/BGL4h8WkZyt984nbyWpD62" class="join-button">Join Us</a>
+        </div>
+
+        <div class="right-column">
+            <div class="event-info">
+                <h2 class="event-title">Next Meetup</h2>
+                <div class="event-date">Saturday, June 29th</div>
+                <div class="event-time">5:30 PM - 8:00 PM</div>
+                
+                <h3 class="venue-title">Venue</h3>
+                <div class="venue-name">309 Prempeh DC Road <span class="venue-flag">BYOD</span></div>
+                
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d644.6128227768259!2d-1.599331149341331!3d6.675423237307607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sgh!4v1751026903002!5m2!1sen!2sgh"
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
