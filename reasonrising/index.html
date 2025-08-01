@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reason Rising - Monthly Series | Accra Atheists</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .main-container {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Left Half - Series Info */
+        .left-half {
+            flex: 1;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px;
+            color: white;
+        }
+
+        .left-content {
+            text-align: center;
+            max-width: 400px;
+        }
+
+        .org-name {
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        .series-title {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 0.9;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .series-subtitle {
+            font-size: 1.1rem;
+            color: #aaa;
+            font-weight: 400;
+            margin-bottom: 50px;
+            letter-spacing: 1px;
+        }
+
+        .series-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #ccc;
+            margin-bottom: 40px;
+        }
+
+        .schedule {
+            font-size: 1rem;
+            color: #888;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #333;
+        }
+
+        .contact-info {
+            text-align: center;
+        }
+
+        .contact-email {
+            color: #888;
+            text-decoration: none;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            display: block;
+            transition: color 0.3s ease;
+        }
+
+        .contact-email:hover {
+            color: #ccc;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-link {
+            color: #666;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: #888;
+        }
+
+        /* Right Half - Event Details */
+        .right-half {
+            flex: 1;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px;
+        }
+
+        .right-content {
+            text-align: center;
+            max-width: 400px;
+        }
+
+        .episode-badge {
+            background: #000;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 40px;
+        }
+
+        .event-date {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 10px;
+        }
+
+        .event-time {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 50px;
+        }
+
+        .speaker-section {
+            margin-bottom: 40px;
+        }
+
+        .speaker-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 10px;
+        }
+
+        .speaker-title {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+
+        .topic-section {
+            margin-bottom: 50px;
+        }
+
+        .topic-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .topic-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #000;
+            line-height: 1.4;
+        }
+
+        .join-button {
+            background: #000;
+            color: white;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .join-button:hover {
+            background: #333;
+            transform: translateY(-1px);
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            body {
+                overflow-y: auto;
+            }
+
+            .main-container {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .left-half, .right-half {
+                flex: none;
+                min-height: 100vh;
+                padding: 40px 30px;
+            }
+
+            .series-title {
+                font-size: 3rem;
+            }
+
+            .event-date {
+                font-size: 2rem;
+            }
+
+            .speaker-name {
+                font-size: 1.5rem;
+            }
+
+            .topic-title {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .left-half, .right-half {
+                padding: 30px 20px;
+            }
+
+            .series-title {
+                font-size: 2.5rem;
+            }
+
+            .event-date {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- Left Half - Series Info -->
+        <div class="left-half">
+            <div class="left-content">
+                <div class="org-name">Accra Atheists</div>
+                <h1 class="series-title">REASON<br>RISING</h1>
+                <div class="series-subtitle">Monthly Discussion Series</div>
+                
+                <p class="series-description">
+                    Exploring humanism, science, human rights, and critical thinking through meaningful conversations with thought leaders and change-makers.
+                </p>
+                
+                <div class="schedule">
+                    Every 2nd Sunday • Online via Google Meet
+                </div>
+                
+                <div class="contact-info">
+                    <a href="mailto:accraatheists@gmail.com" class="contact-email">
+                        accraatheists@gmail.com
+                    </a>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link">Twitter</a>
+                        <a href="#" class="social-link">Instagram</a>
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">TikTok</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Half - Current Episode -->
+        <div class="right-half">
+            <div class="right-content">
+                <div class="episode-badge">Episode 1 • Premiere</div>
+                
+                <div class="event-date">August 17</div>
+                <div class="event-time">5:00 PM - 7:00 PM GMT</div>
+                
+                <div class="speaker-section">
+                    <div class="speaker-name">Mubarak Bala</div>
+                    <div class="speaker-title">
+                        Former President of Humanist Association of Nigeria
+                    </div>
+                </div>
+                
+                <div class="topic-section">
+                    <div class="topic-label">Topic</div>
+                    <div class="topic-title">
+                        Leaving Islam, Surviving Persecution and the Prison Experience
+                    </div>
+                </div>
+                
+                <a href="https://meet.google.com/qmu-ogmj-awz" class="join-button" target="_blank">
+                    Join Google Meet
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle mobile responsiveness
+            function handleResize() {
+                if (window.innerWidth <= 768) {
+                    document.body.style.overflowY = 'auto';
+                } else {
+                    document.body.style.overflowY = 'hidden';
+                }
+            }
+
+            window.addEventListener('resize', handleResize);
+            handleResize();
+        });
+    </script>
+</body>
+</html>
