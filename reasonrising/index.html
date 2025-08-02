@@ -238,6 +238,49 @@
             transform: translateY(-1px);
         }
 
+        /* Countdown Timer Styles */
+        .countdown-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .countdown-title {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 500;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .countdown-unit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 60px;
+        }
+
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #000;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .countdown-label {
+            font-size: 0.7rem;
+            color: #666;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
         .production-team {
             font-size: 0.8rem;
             color: #888;
@@ -314,6 +357,22 @@
                 margin-bottom: 30px;
             }
 
+            .countdown-timer {
+                gap: 10px;
+            }
+
+            .countdown-unit {
+                min-width: 50px;
+            }
+
+            .countdown-number {
+                font-size: 1.5rem;
+            }
+
+            .countdown-label {
+                font-size: 0.6rem;
+            }
+
             .production-team {
                 padding-top: 15px;
                 font-size: 0.7rem;
@@ -355,6 +414,22 @@
 
             .join-button {
                 margin-bottom: 25px;
+            }
+
+            .countdown-timer {
+                gap: 8px;
+            }
+
+            .countdown-unit {
+                min-width: 45px;
+            }
+
+            .countdown-number {
+                font-size: 1.3rem;
+            }
+
+            .countdown-label {
+                font-size: 0.55rem;
             }
 
             .production-team {
@@ -420,7 +495,29 @@
                     </div>
                 </div>
                 
-                <a href="https://meet.google.com/qmu-ogmj-awz" class="join-button" target="_blank">
+                <div class="countdown-container" id="countdown-container">
+                    <div class="countdown-title">Event starts in:</div>
+                    <div class="countdown-timer" id="countdown-timer">
+                        <div class="countdown-unit">
+                            <span class="countdown-number" id="days">00</span>
+                            <span class="countdown-label">Days</span>
+                        </div>
+                        <div class="countdown-unit">
+                            <span class="countdown-number" id="hours">00</span>
+                            <span class="countdown-label">Hours</span>
+                        </div>
+                        <div class="countdown-unit">
+                            <span class="countdown-number" id="minutes">00</span>
+                            <span class="countdown-label">Minutes</span>
+                        </div>
+                        <div class="countdown-unit">
+                            <span class="countdown-number" id="seconds">00</span>
+                            <span class="countdown-label">Seconds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="https://meet.google.com/qmu-ogmj-awz" class="join-button" id="join-button" target="_blank" style="display: none;">
                     Join Google Meet
                 </a>
             </div>
@@ -445,6 +542,37 @@
 
             window.addEventListener('resize', handleResize);
             handleResize();
+
+            // Countdown Timer
+            function updateCountdown() {
+                // Set the event date and time (August 17, 2024 at 5:00 PM GMT)
+                const eventDate = new Date('2024-08-17T17:00:00Z');
+                const now = new Date();
+                const timeDifference = eventDate - now;
+
+                if (timeDifference <= 0) {
+                    // Event has started, show join button and hide countdown
+                    document.getElementById('countdown-container').style.display = 'none';
+                    document.getElementById('join-button').style.display = 'inline-block';
+                    return;
+                }
+
+                // Calculate time units
+                const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+                // Update the countdown display
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            }
+
+            // Update countdown every second
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
         });
     </script>
 </body>
