@@ -244,6 +244,14 @@
             color: #888;
             text-align: center;
             line-height: 1.4;
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px;
+            backdrop-filter: blur(10px);
         }
 
         /* Mobile Styles */
@@ -312,6 +320,13 @@
             .join-button {
                 margin-bottom: 30px;
             }
+
+            .production-team {
+                position: fixed;
+                bottom: 10px;
+                padding: 10px;
+                font-size: 0.7rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -349,6 +364,12 @@
 
             .join-button {
                 margin-bottom: 25px;
+            }
+
+            .production-team {
+                bottom: 5px;
+                padding: 8px;
+                font-size: 0.65rem;
             }
         }
     </style>
@@ -412,13 +433,14 @@
                 <a href="https://meet.google.com/qmu-ogmj-awz" class="join-button" target="_blank">
                     Join Google Meet
                 </a>
-
-                <div class="production-team">
-                    Production Team:<br>
-                    ROSLYN MOUD, SAM AMEGAVI
-                </div>
             </div>
         </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="production-team">
+        Production Team:<br>
+        ROSLYN MOULD • SAMI AMEGAVI
     </div>
 
     <script>
