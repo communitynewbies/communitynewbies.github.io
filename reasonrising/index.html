@@ -517,7 +517,7 @@
                     </div>
                 </div>
 
-                <a href="https://meet.google.com/qmu-ogmj-awz" class="join-button" id="join-button" target="_blank" style="display: none;">
+                <a href="https://meet.google.com/qmu-ogmj-awz" class="join-button" id="join-button" target="_blank">
                     Join Google Meet
                 </a>
             </div>
@@ -545,8 +545,8 @@
 
             // Countdown Timer
             function updateCountdown() {
-                // Set the event date and time (August 17, 2024 at 5:00 PM GMT)
-                const eventDate = new Date('2024-08-17T17:00:00Z');
+                // Set the event date and time (August 17, 2025 at 5:00 PM GMT)
+                const eventDate = new Date('2025-08-17T17:00:00Z');
                 const now = new Date();
                 const timeDifference = eventDate - now;
 
@@ -556,6 +556,10 @@
                     document.getElementById('join-button').style.display = 'inline-block';
                     return;
                 }
+
+                // Show countdown and hide join button
+                document.getElementById('countdown-container').style.display = 'block';
+                document.getElementById('join-button').style.display = 'none';
 
                 // Calculate time units
                 const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
